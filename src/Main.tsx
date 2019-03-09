@@ -1,4 +1,5 @@
 import * as React from 'react';
+import App from './modules/core/App';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';

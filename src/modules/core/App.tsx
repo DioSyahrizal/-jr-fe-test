@@ -10,8 +10,11 @@ import Selector from './components/Selector';
 import * as sidebar from './sidebar';
 import HomeSidebar from '../home/sidebar';
 
-const HomeModule = React.lazy(() => import('../home'));
-const AboutModule = React.lazy(() => import('../about'));
+// const HomeModule = React.lazy(() => import('../home'));
+// const AboutModule = React.lazy(() => import('../about'));
+
+import HomeModule from '../home';
+import AboutModule from '../about';
 
 class App extends React.Component<RouteComponentProps> {
   public render() {

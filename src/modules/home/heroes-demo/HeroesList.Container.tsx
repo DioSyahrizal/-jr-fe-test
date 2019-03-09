@@ -11,7 +11,7 @@ import { DataMap } from '~/interfaces/types';
 import HeroesList from './HeroesList';
 
 interface PropsFromState {
-  loading: string;
+  loading?: boolean;
   errors?: string;
   index: string[];
   data: DataMap<Hero>;

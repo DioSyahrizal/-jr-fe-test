@@ -3,5 +3,5 @@ import { HeroesState } from './heroes';
 
 export interface RootStore {
   router: RouterState;
-  // heroes: HeroesState;
+  heroes: HeroesState;
 }

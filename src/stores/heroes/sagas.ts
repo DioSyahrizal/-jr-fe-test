@@ -13,7 +13,7 @@ function* handleFetch() {
     if (res.error) {
       yield put(fetchError(res.error));
     } else {
-      // yield put(fetchSuccess(res));
+      yield put(fetchSuccess(res));
     }
   } catch (err) {
     if (err instanceof Error) {

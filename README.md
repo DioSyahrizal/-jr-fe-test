@@ -1,32 +1,11 @@
-# frontend-starter-internal
+# Internal Jr Front End Kata Ai
 
-The starter kit for internal Kata.ai projects.
+By : Muhammad Dio Syahrizal
 
-## Overview
+## Screenshot 1
 
-This is the base starter kit for all internal Kata.ai projects. It is built with `create-react-app` with additional React configurations provided via [rescripts](https://github.com/rescripts/rescripts).
+![Screenshot 1](./screenshot/sc1.png)
 
-## Getting started
+## Screenshot 2
 
-A Node.js >=10 setup with [yarn](https://yarnpkg.com/lang/en/) is recommended.
-
-```bash
-# install dependencies
-$ yarn
-
-# start server with hot reload at `localhost:3000`
-$ yarn start
-
-# run a production build
-$ yarn build
-
-# run tests
-$ yarn test
-```
-
-## Maintainers
-
-- Resi Respati – Kata.ai
-- Edi Santoso – Kata.ai
-- Fahmi Idris – Kata.ai
-- Rohmad Sasmito – Kata.ai
+![Screenshot 2](./screenshot/sc2.png)

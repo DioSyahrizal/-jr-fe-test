@@ -26,3 +26,7 @@ export const fetchSuccess = (heroes: Hero[]) => {
 };
 
 export const fetchError = (message: string) => action(HeroesActionTypes.FETCH_ERROR, message);
+
+export const selectHero = (hero: Hero) => action(HeroesActionTypes.SELECT_HERO, { hero });
+
+export const selected = () => action(HeroesActionTypes.SELECTED);

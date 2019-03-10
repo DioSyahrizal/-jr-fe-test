@@ -21,4 +21,5 @@ export interface HeroesState {
   readonly index: string[];
   readonly data: DataMap<Hero>;
   readonly errors?: string | null;
+  readonly selected?: Hero | null;
 }

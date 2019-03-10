@@ -9,7 +9,7 @@ import { Card, CardButton } from '@kata-kit/card';
 import { DataMap } from '~/interfaces/types';
 import { Hero } from '~/interfaces/heroes';
 import { Skeleton } from '~/components/Skeleton';
-import { fetchRequest } from '~/stores/heroes/actions';
+import { fetchRequest, selectHero } from '~/stores/heroes/actions';
 import { CardInfo, CardInfoKey, CardInfoValue } from '../components/CardInfo';
 
 interface HeroesListProps {
@@ -17,11 +17,12 @@ interface HeroesListProps {
   index: string[];
   data: DataMap<Hero>;
   fetchRequest: typeof fetchRequest;
+  selectHero: typeof selectHero;
+  selected?: Hero;
 }
 
 interface HomeFirstPageState {
   open: boolean;
-  heroSelection?: Hero;
 }
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://api.opendota.com';
@@ -50,32 +51,32 @@ class HeroesList extends React.Component<HeroesListProps, HomeFirstPageState> {
       <>
         <DrawerHeader title="Drawer Title" />
         <DrawerBody>
-          {this.state.heroSelection ? (
+          {this.props.selected ? (
             <div>
               <div style={styles.container}>
-                <img src={API_ENDPOINT + this.state.heroSelection.img} style={styles.image} />
-                <h1 style={styles.name}>{this.state.heroSelection.localized_name}</h1>
+                <img src={API_ENDPOINT + this.props.selected.img} style={styles.image} />
+                <h1 style={styles.name}>{this.props.selected.localized_name}</h1>
               </div>
-              <img src={API_ENDPOINT + this.state.heroSelection.icon} alt="" />
+              <img src={API_ENDPOINT + this.props.selected.icon} alt="" />
               <p>
                 <b>Type: </b>
-                {this.state.heroSelection.attack_type}
+                {this.props.selected.attack_type}
               </p>
               <p>
                 <b>Roles: </b>
-                {this.state.heroSelection.roles.join(', ')}
+                {this.props.selected.roles.join(', ')}
               </p>
               <CardInfo>
                 <CardInfoKey>Primary Attr</CardInfoKey>
-                <CardInfoValue>{this.state.heroSelection.primary_attr}</CardInfoValue>
+                <CardInfoValue>{this.props.selected.primary_attr}</CardInfoValue>
               </CardInfo>
               <CardInfo>
                 <CardInfoKey>Legs</CardInfoKey>
-                <CardInfoValue>{this.state.heroSelection.legs}</CardInfoValue>
+                <CardInfoValue>{this.props.selected.legs}</CardInfoValue>
               </CardInfo>
             </div>
           ) : (
-            ''
+            'null'
           )}
         </DrawerBody>
         <DrawerFooter>
@@ -126,7 +127,7 @@ class HeroesList extends React.Component<HeroesListProps, HomeFirstPageState> {
           avatarComponent={<Avatar src={API_ENDPOINT + hero.img} size={40} />}
           onClick={() => {
             this.toggleDrawer();
-            this.setState({ heroSelection: hero });
+            this.props.selectHero(hero);
           }}
         >
           <div className="mb-2">

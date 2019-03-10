@@ -15,3 +15,7 @@ export function getHeroesData(store: Heroes.HeroesState) {
 export function getHeroesErrors(store: Heroes.HeroesState) {
   return store.errors || undefined;
 }
+
+export function getSelected(store: Heroes.HeroesState) {
+  return store.selected || undefined;
+}

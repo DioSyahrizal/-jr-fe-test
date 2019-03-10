@@ -9,7 +9,8 @@ const initialState: HeroesState = {
   index: [],
   data: {},
   errors: null,
-  loading: false
+  loading: false,
+  selected: null
 };
 
 const index: Reducer<HeroesState['index']> = (state = initialState.index, { type, payload }) => {
@@ -63,11 +64,26 @@ const loading: Reducer<HeroesState['loading']> = (state = initialState.loading, 
   }
 };
 
+const selected: Reducer<HeroesState['selected']> = (state = initialState.selected, { type, payload }) => {
+  switch (type) {
+    case HeroesActionTypes.SELECT_HERO: {
+      return Object.assign({}, payload.hero);
+    }
+    case HeroesActionTypes.SELECTED: {
+      return state;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 const heroesReducer = combineReducers<HeroesState>({
   index,
   data,
   errors,
-  loading
+  loading,
+  selected
 });
 
 export { heroesReducer };
